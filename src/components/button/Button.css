@@ -1,0 +1,32 @@
+.btn {
+  border-radius: 0 !important;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.btn:not(.last-child) {
+  margin-right: 5px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.btn.btn-primary,
+.btn.btn-primary:active,
+.btn.btn-primary:focus,
+.btn.btn-primary:focus:active {
+  border: 2px solid var(--dark);
+  background-color: var(--dark);
+  box-shadow: none !important;
+}
+
+.btn.btn-secondary,
+.btn.btn-secondary:active,
+.btn.btn-secondary:focus,
+.btn.btn-secondary:focus:active {
+  border: 2px solid var(--dark);
+  color: var(--dark);
+  background-color: white;
+  box-shadow: none !important;
+}
