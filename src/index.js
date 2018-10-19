@@ -3,5 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
+import { Router } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const history = createBrowserHistory();
+
+ReactDOM.render(
+  <Router history={history}>
+    <App />
+  </Router>,
+  document.getElementById('root')
+);

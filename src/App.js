@@ -1,30 +1,20 @@
 import React from 'react';
-import { Button } from './components';
 import NavBar from './components/navbar/Navbar';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { Home, Badges, Users, NotFound } from './components';
 
 class App extends React.Component {
-  state = {
-    counter: 0,
-  };
-
-  increaseCounter = () => {
-    this.setState({ counter: this.state.counter + 1 });
-  };
-
-  decreaseCounter = () => {
-    this.setState({ counter: this.state.counter - 1 });
-  };
-
   render() {
     return (
-      <div className="container">
-        <NavBar/>
-        <div>Welcome to Attrecto Academy</div>
-        <div>Counter: {this.state.counter}</div>
-        <Button onClick={this.increaseCounter}>Increase</Button>
-        <Button styleType="secondary" onClick={this.decreaseCounter}>
-          Decrease
-        </Button>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/badges" component={Badges} />
+          <Route path="/users" component={Users} />
+          <Route path="/404" component={NotFound} />
+          <Redirect to="/404" />
+        </Switch>
       </div>
     );
   }
