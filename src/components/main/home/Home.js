@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../button/Button';
+import { Button } from '../../shared';
 
 class Home extends Component {
   state = {
