@@ -1,0 +1,14 @@
+.assign-badges table th,
+.assign-badges table td {
+  width: 70%;
+}
+
+.assign-badges table th:first-child,
+.assign-badges table td:first-child {
+  width: 10%;
+}
+
+.assign-badges table th:last-child,
+.assign-badges table td:last-child {
+  width: 20%;
+}

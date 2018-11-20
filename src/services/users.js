@@ -19,3 +19,19 @@ export const editUser = async (id, data) => {
 export const deleteUser = async (id) => {
   return await request({ resource: `/users/${id}`, method: Methods.DELETE });
 };
+
+export const getUserBadges = async (userId) => {
+  return await request({ resource: `/users/${userId}/badges` });
+};
+
+export const getUserBadge = async (userId, badgeId) => {
+  return await request({ resource: `/users/${userId}/badges/${badgeId}` });
+};
+
+export const assignBadgeToUser = async (userId, badgeId) => {
+  return await request({ resource: `/users/${userId}/badges/${badgeId}`, method: Methods.POST });
+};
+
+export const deleteBadgeFromUser = async (userId, badgeId) => {
+  return await request({ resource: `/users/${userId}/badges/${badgeId}`, method: Methods.DELETE });
+};

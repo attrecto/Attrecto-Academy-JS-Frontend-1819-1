@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getUser, createUser, editUser } from '../../../services/users';
 import { EditorTitle, FieldGroup } from '../../shared';
+import AssignBadge from './AssignBadge';
 
 class UserEditor extends Component {
   state = {
@@ -24,7 +25,9 @@ class UserEditor extends Component {
       await editUser(this.props.match.params.id, this.state.user);
     } else {
       const { insertId } = await createUser(this.state.user);
-      this.props.history.replace(`user/${insertId}`);
+      this.setState({ user: { ...this.state.user, id: insertId } }, () => {
+        this.props.history.replace(`user/${insertId}`);
+      });
     }
   };
 
@@ -54,6 +57,11 @@ class UserEditor extends Component {
               <FieldGroup label="Name" name="name" onChange={this.onChange} value={user.name} />
             </form>
           </div>
+          {!!user.id ? (
+            <div className="col-12">
+              <AssignBadge user={this.state.user} />
+            </div>
+          ) : null}
         </div>
       </div>
     );
